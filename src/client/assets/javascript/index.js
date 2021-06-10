@@ -1,7 +1,7 @@
 // PROVIDED CODE BELOW (LINES 1 - 80) DO NOT REMOVE
 
 // The store will hold all information needed globally
-var store = {
+let store = {
   track_id: undefined,
   player_id: undefined,
   race_id: undefined,
@@ -129,7 +129,7 @@ async function runCountdown() {
     let timer = 3;
 
     return new Promise((resolve) => {
-      let counter = setInterval(() => {
+      const counter = setInterval(() => {
         if (timer > 0) {
           document.getElementById("big-numbers").innerHTML = timer;
           timer -= 1;
@@ -282,7 +282,7 @@ function resultsView(positions) {
 }
 
 function raceProgress(positions) {
-  let userPlayer = positions.find((e) => e.id === store.player_id);
+  const userPlayer = positions.find((e) => e.id === store.player_id);
   userPlayer.driver_name += " (you)";
 
   positions = positions.sort((a, b) => (a.segment > b.segment ? -1 : 1));
